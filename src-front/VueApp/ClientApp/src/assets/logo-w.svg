@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29.132" height="32.281" viewBox="0 0 29.132 32.281">
+  <g id="Groupe_9" data-name="Groupe 9" transform="translate(-122.868 -183)">
+    <path id="Union_1" data-name="Union 1" d="M0,19.226V3.433a3.433,3.433,0,1,1,6.866,0V19.226a3.433,3.433,0,1,1-6.866,0Z" transform="translate(124.319 187.601)" fill="#fff" opacity="0.6"/>
+    <path id="Union_2" data-name="Union 2" d="M0,27.466V3.433a3.433,3.433,0,0,1,6.866,0V27.466a3.433,3.433,0,1,1-6.866,0Z" transform="translate(143.683 183)" fill="#fff" opacity="0.6"/>
+    <path id="Union_3" data-name="Union 3" d="M0,30.9V3.433a3.433,3.433,0,1,1,6.866,0V30.9A3.433,3.433,0,1,1,0,30.9Z" transform="translate(122.868 191.005) rotate(-45)" fill="#fff" opacity="0.6"/>
+  </g>
+</svg>

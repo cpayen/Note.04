@@ -1,0 +1,60 @@
+// Custom Bulma's variables
+
+$family-sans-serif: 'PT Sans', sans-serif;
+$body-size: 14px;
+$radius-small: 2px;
+$radius: 2px;
+$radius-large: 2px;
+// $modal-background-background-color: rgba(#209bee, 1);
+$primary: #71B2F8;
+$info: #8c67ef;
+//$label-color: #ccc;
+//$label-weight: 400;
+
+// Import Bulma's core
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+// Setup $colors
+// $colors: (
+//   "white": ($white, $black),
+//   "black": ($black, $white),
+//   "light": ($light, $light-invert),
+//   "dark": ($dark, $dark-invert),
+//   "primary": ($primary, $primary-invert),
+//   "info": ($info, $info-invert),
+//   "success": ($success, $success-invert),
+//   "warning": ($warning, $warning-invert),
+//   "danger": ($danger, $danger-invert)
+// );
+
+// Import Bulma and Buefy styles
+@import "../../node_modules/bulma";
+@import "../../node_modules/buefy/src/scss/buefy";
+
+
+// Overrides
+
+.modal-card {
+  box-shadow: 0 0 75px rgba(#000, .35);
+}
+
+.modal-card-foot {
+  justify-content: flex-end;
+}
+
+.label {
+  font-weight: 400;
+}
+
+// .card-footer-item {
+//   justify-content: flex-end;
+// }
+
+.button, .input, .taginput .taginput-container.is-focusable, .textarea, .select select, .file-cta, .file-name, .pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
+  border-radius: 2px;
+}
