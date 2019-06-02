@@ -18,13 +18,10 @@ export default Vue.extend({
 </style>
 
 <style lang="scss">
-@import './theme/bulma.scss';
+@import './theme/theme.scss';
 body, html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-body {
-  background: #EEF2F9;
 }
 </style>

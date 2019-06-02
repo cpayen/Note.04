@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
 import { RootState } from './types';
 import { auth } from './modules/auth';
-import { profile } from './modules/profile';
+import { space } from './modules/space';
 
 Vue.use(Vuex);
 
@@ -17,7 +17,7 @@ const store: StoreOptions<RootState> = {
   },
   modules: {
     auth,
-    profile,
+    space,
   },
 };
 

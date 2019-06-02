@@ -1,0 +1,4 @@
+- Api - découper comme le store
+- Home - data - spaces + pages (light)
+- design
+

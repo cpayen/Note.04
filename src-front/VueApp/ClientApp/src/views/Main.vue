@@ -1,10 +1,9 @@
 <template>
-  <div class="me">
+  <div class="main">
 
-    <app-top-nav/>
-    <app-left-nav/>
+    <app-nav/>
     
-    <div class="app-container">
+    <div class="main-container">
       <router-view/>
     </div>
 
@@ -13,22 +12,20 @@
 
 <script>
 import Vue from 'vue';
-import AppTopNav from '@/components/common/AppTopNav.vue';
-import AppLeftNav from '@/components/common/AppLeftNav.vue';
+import AppNav from '@/components/common/AppNav.vue';
 
 export default Vue.extend({
   name: 'Main',
   components: {
-    AppTopNav,
-    AppLeftNav,
+    AppNav,
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.app-container {
+.main-container {
   position: absolute;
-  top: 3.25rem;
+  top: 0;
   left: 4rem;
   right: 0;
   bottom: 0;

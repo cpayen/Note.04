@@ -18,6 +18,9 @@ const Url = {
   Profile: {
     Login: `${BaseUrl}/profile/`,
   },
+  Spaces: {
+    LoadSpaces: `${BaseUrl}/spaces/`,
+  },
 };
 
 export default {
@@ -39,6 +42,14 @@ export default {
         firstName,
         lastName,
       }, getConfig());
+      return await Promise.resolve(response.data);
+    } catch (error) {
+      return await Promise.reject(error);
+    }
+  },
+  async loadSpaces() {
+    try {
+      const response = await Axios.get(Url.Spaces.LoadSpaces, getConfig());
       return await Promise.resolve(response.data);
     } catch (error) {
       return await Promise.reject(error);

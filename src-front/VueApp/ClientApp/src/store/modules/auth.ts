@@ -3,7 +3,6 @@ import { RootState, AuthState } from '../types';
 import { GetterTree } from 'vuex';
 import { MutationTree } from 'vuex';
 import { ActionTree } from 'vuex';
-import { User } from '@/models/User';
 import Api from '@/api/api';
 
 const namespaced: boolean = true;

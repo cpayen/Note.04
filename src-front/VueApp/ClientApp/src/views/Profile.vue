@@ -2,13 +2,13 @@
   <div class="profile">
     <h1 class="is-size-3 has-text-grey">My profile</h1>
     <div class="columns">
-      <div class="column is-one-quarter">
+      <div class="column">
         <user-info/>
       </div>
-      <div class="column is-one-quarter">
+      <div class="column">
         <user-picture/>
       </div>
-      <div class="column is-one-quarter">
+      <div class="column">
         <user-password/>
       </div>
     </div>
