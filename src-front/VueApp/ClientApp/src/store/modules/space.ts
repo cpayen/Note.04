@@ -3,7 +3,7 @@ import { RootState, NoteState } from '../types';
 import { GetterTree } from 'vuex';
 import { MutationTree } from 'vuex';
 import { ActionTree } from 'vuex';
-import Api from '@/api/api';
+import { NoteApi } from '@/store/api/NoteApi';
 
 const namespaced: boolean = true;
 
@@ -31,7 +31,7 @@ const actions: ActionTree<NoteState, RootState> = {
 
   // Spaces
   loadSpaces({ commit, state }) {
-    Api.loadSpaces()
+    NoteApi.loadSpaces()
     .then((response) => {
       commit('loadSpacesSuccess', {
         spaces: response,

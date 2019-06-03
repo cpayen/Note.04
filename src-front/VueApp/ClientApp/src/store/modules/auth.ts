@@ -3,7 +3,7 @@ import { RootState, AuthState } from '../types';
 import { GetterTree } from 'vuex';
 import { MutationTree } from 'vuex';
 import { ActionTree } from 'vuex';
-import Api from '@/api/api';
+import { AuthApi } from '@/store/api/AuthApi';
 
 const namespaced: boolean = true;
 const currentUserStorageKey: string = 'Note.currentUser';
@@ -74,7 +74,7 @@ const actions: ActionTree<AuthState, RootState> = {
   // Login
   login({ commit }, { login, password, rememberMe }) {
     commit('loginRequest');
-    Api.login(login, password)
+    AuthApi.login(login, password)
       .then((response) => {
         if (rememberMe) {
           localStorage.setItem(currentUserStorageKey, JSON.stringify(response.user));
@@ -105,7 +105,7 @@ const actions: ActionTree<AuthState, RootState> = {
     if (!state.currentUser) {
       return;
     }
-    Api.setProfileInfo(state.currentUser.id, email, firstName, lastName)
+    AuthApi.setProfileInfo(state.currentUser.id, email, firstName, lastName)
     .then((response) => {
       commit('updateProfileSuccess', {
         profile: response,
