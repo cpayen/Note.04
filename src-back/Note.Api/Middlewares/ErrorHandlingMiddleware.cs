@@ -27,7 +27,7 @@ namespace Note.Api.Middlewares
                 await HandleExceptionAsync(context, exception);
 
                 // Throw the exception for other middlewares (Logging)
-                throw exception;
+                throw;
             }
         }
 

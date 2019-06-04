@@ -65,7 +65,7 @@ namespace Note.Api.Middlewares
                     logger.LogCritical(log);
                     if(exception != null)
                     {
-                        logger.LogCritical(exception.InnerException, "Exception");
+                        logger.LogCritical(exception, "Exception");
                     }
                     break;
 
@@ -73,7 +73,7 @@ namespace Note.Api.Middlewares
                     logger.LogError(log);
                     if(exception != null)
                     {
-                        logger.LogError(exception.InnerException, "NotFound");
+                        logger.LogError(exception, "NotFound");
                     }
                     break;
 
@@ -81,7 +81,7 @@ namespace Note.Api.Middlewares
                     logger.LogError(log);
                     if (exception != null)
                     {
-                        logger.LogError(exception.InnerException, "Error");
+                        logger.LogError(exception, "Error");
                     }
                     break;
             }
