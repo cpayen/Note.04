@@ -24,7 +24,7 @@ namespace Note.Core.Services
 
         public async Task<IEnumerable<Space>> GetAllAsync()
         {
-            var spaces = await _factory.GetRepository<Space>().GetAllAsync();
+            var spaces = await _factory.GetRepository<Space>().GetAllAsync("Pages", "Owner");
             return spaces;
         }
 

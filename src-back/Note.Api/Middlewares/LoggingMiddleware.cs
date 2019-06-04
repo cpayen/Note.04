@@ -56,6 +56,7 @@ namespace Note.Api.Middlewares
             switch (code)
             {
                 case (int)HttpStatusCode.OK:
+                case (int)HttpStatusCode.Created:
                 case (int)HttpStatusCode.NoContent:
                     logger.LogInformation(log);
                     break;
@@ -64,7 +65,7 @@ namespace Note.Api.Middlewares
                     logger.LogCritical(log);
                     if(exception != null)
                     {
-                        logger.LogCritical(exception, "Exception");
+                        logger.LogCritical(exception.InnerException, "Exception");
                     }
                     break;
 
@@ -72,7 +73,7 @@ namespace Note.Api.Middlewares
                     logger.LogError(log);
                     if(exception != null)
                     {
-                        logger.LogError(exception, "NotFound");
+                        logger.LogError(exception.InnerException, "NotFound");
                     }
                     break;
 
@@ -80,7 +81,7 @@ namespace Note.Api.Middlewares
                     logger.LogError(log);
                     if (exception != null)
                     {
-                        logger.LogError(exception, "Error");
+                        logger.LogError(exception.InnerException, "Error");
                     }
                     break;
             }

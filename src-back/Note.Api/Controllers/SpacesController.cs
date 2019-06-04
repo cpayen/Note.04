@@ -30,7 +30,8 @@ namespace Note.Api.Controllers
         public async Task<ActionResult<IEnumerable<SpaceLightDTO>>> GetAsync()
         {
             var items = await _spaces.GetAllAsync();
-            return Ok(items.Select(o => Mappers.GetSpaceLightDTO(o)));
+            var dto = items.Select(o => Mappers.GetSpaceLightDTO(o)).ToList();
+            return Ok(dto);
         }
 
         // GET api/spaces/5

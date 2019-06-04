@@ -9,6 +9,7 @@ namespace Note.Core.Data
     public interface IRepository<T> where T : Entity
     {
         Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync(params string[] includes);
         Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> predicate);
         Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> predicate, params string[] includes);
         Task<T> FindAsync(Guid id);

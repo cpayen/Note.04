@@ -24,6 +24,12 @@ namespace Note.Infra.Data.SQLServer
         {
             return await _entities.ToListAsync();
         }
+        
+        public async Task<IEnumerable<T>> GetAllAsync(params string[] includes)
+        {
+            var query = _entities.AsQueryable();
+            return await includes.Aggregate(query, (current, includeProperty) => current.Include(includeProperty)).ToListAsync();
+        }
 
         public async Task<T> FindAsync(Guid id)
         {
@@ -32,12 +38,8 @@ namespace Note.Infra.Data.SQLServer
 
         public async Task<T> FindAsync(Guid id, params string[] includes)
         {
-            var query = _entities;
-            foreach (var include in includes)
-            {
-                query.Include(include);
-            }
-            return await query.FindAsync(id);
+            var query = _entities.Where(s => s.Id == id);
+            return await includes.Aggregate(query, (current, includeProperty) => current.Include(includeProperty)).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> predicate)
@@ -47,12 +49,8 @@ namespace Note.Infra.Data.SQLServer
 
         public async Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> predicate, params string[] includes)
         {
-            var query = _entities;
-            foreach (var include in includes)
-            {
-                query.Include(include);
-            }
-            return await query.Where(predicate).ToListAsync();
+            var query = _entities.Where(predicate);
+            return await includes.Aggregate(query, (current, includeProperty) => current.Include(includeProperty)).ToListAsync();
         }
 
         public T Create(T entity)
@@ -98,7 +96,7 @@ namespace Note.Infra.Data.SQLServer
             _entities.Attach(entity);
             return entity;
         }
-
+        
         //public async Task<T> FindAsync(Guid id, params Expression<Func<T, object>>[] includes)
         //{
         //    var query = _entities.Where(s => s.Id == id);
