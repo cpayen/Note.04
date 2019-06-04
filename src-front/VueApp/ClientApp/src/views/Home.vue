@@ -2,10 +2,10 @@
   <div class="home">
     <div class="columns is-gapless">
       <div class="column is-one-quarter is-left-pane">
-        <spaces/>
+        <spaces-nav/>
       </div>
-      <div class="column">
-        <last-contents/>
+      <div class="column is-right-pane">
+        <router-view/>
       </div>
     </div>
   </div>
@@ -13,13 +13,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Spaces from '@/components/note/Spaces.vue';
+import SpacesNav from '@/components/note/SpacesNav.vue';
 import LastContents from '@/components/note/LastContents.vue';
 
 export default Vue.extend({
   name: 'Home',
   components: {
-    Spaces,
+    SpacesNav,
     LastContents,
   },
 });
@@ -28,4 +28,3 @@ export default Vue.extend({
 <style lang="scss">
 
 </style>
-

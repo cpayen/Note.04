@@ -1,4 +1,9 @@
 - Api - découper comme le store
 - Home - data - spaces + pages (light)
-- design
+- Design / Ergo - Cf. Bitbucket
+
+- Main
+  - Gauche: Liste des espaces (par date) / Détail espaces (navigation, seulement les titres)
+  - Droite: Liste des pages (par date) / Détail espace (contenu, descriptions...) [+ recherche, tri...]
+  - Ajout espace / page: renvoir sur le détail de l'élément créé
 

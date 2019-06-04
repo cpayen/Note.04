@@ -30,10 +30,23 @@ const getters: GetterTree<NoteState, RootState> = {
 const actions: ActionTree<NoteState, RootState> = {
 
   // Spaces
-  loadSpaces({ commit, state }) {
+
+  loadSpaces({ commit }) {
     NoteApi.loadSpaces()
     .then((response) => {
       commit('loadSpacesSuccess', {
+        spaces: response,
+      });
+    })
+    .catch((error) => {
+      //
+    });
+  },
+
+  createSpace({ commit }, { value }) {
+    NoteApi.createSpace(value)
+    .then((response) => {
+      commit('createSpacesSuccess', {
         spaces: response,
       });
     })

@@ -2,6 +2,13 @@
   <div class="login-form">
     <form v-on:submit.prevent="requestSpaceCreation">
 
+      <header class="form-header">
+        <h2 class="subtitle is-3">New space</h2>
+        <div class="has-text-right">
+          <button type="submit" class="button is-primary is-medium" :disabled="!formIsValid">Save</button>
+        </div>
+      </header>
+
       <main class="form-main">
         <b-field label="Name">
           <b-input id="name" size="is-large" v-model="name" placeholder="Space name" maxlength="250"></b-input>
@@ -24,13 +31,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Space } from '@/models/Space';
 
 export default Vue.extend({
-  name: 'loginform',
-  props: {
-    space: Space,
-  },
+  name: 'AddSpace',
   data() {
     return {
       name: null,
@@ -61,11 +64,14 @@ export default Vue.extend({
       this.loading = true;
       this.success = false;
       this.error = false;
-      this.$store.dispatch('space/create', {
-        name: this.name,
-        slug: this.slug,
-        description: this.description,
-        color: this.color,
+      this.$store.dispatch('space/createSpace', {
+        value: {
+          name: this.name,
+          slug: this.slug,
+          description: this.description,
+          color: this.color,
+          ownerId: this.$store.getters['auth/currentUser'].id,
+        },
       });
     },
   },

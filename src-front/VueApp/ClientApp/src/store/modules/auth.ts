@@ -126,9 +126,6 @@ const mutations: MutationTree<AuthState> = {
     state.error = false;
   },
   loginSuccess(state, { authUser }) {
-    // const currentUser = new User();
-    // Object.assign(currentUser, authUser.user);
-    // state.currentUser = currentUser;
     state.currentUser = authUser.user;
     state.currentUserToken = authUser.token;
   },
