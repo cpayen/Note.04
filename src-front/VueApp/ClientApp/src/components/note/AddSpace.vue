@@ -20,9 +20,6 @@
         <b-field label="Description">
           <b-input type="textarea" v-model="space.description" placeholder="Space description" maxlength="2000"></b-input>
         </b-field>
-        <b-field label="Color">
-          <b-input v-model="space.color" placeholder="Space color (hex: #000000)" maxlength="8"></b-input>
-        </b-field>
       </main>
 
     </form>
@@ -48,7 +45,7 @@ export default Vue.extend({
       return this.$store.state.space.error;
     },
     formIsValid(): boolean {
-      return Boolean(this.space.name) && Boolean(this.space.slug) && Boolean(this.space.color);
+      return Boolean(this.space.name) && Boolean(this.space.slug);
     },
   },
   watch: {

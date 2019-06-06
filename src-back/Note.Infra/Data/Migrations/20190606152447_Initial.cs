@@ -41,7 +41,6 @@ namespace Note.Infra.Data.Migrations
                     Name = table.Column<string>(maxLength: 250, nullable: false),
                     Slug = table.Column<string>(maxLength: 100, nullable: false),
                     Description = table.Column<string>(maxLength: 2000, nullable: true),
-                    Color = table.Column<string>(maxLength: 8, nullable: true),
                     OwnerId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
@@ -91,7 +90,7 @@ namespace Note.Infra.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Email", "FirstName", "LastName", "Password", "Roles", "Salt", "UpdatedAt", "UpdatedBy", "UserName" },
-                values: new object[] { new Guid("62be66a3-10c5-4f2f-a9a8-250f1eda60d4"), new DateTime(2019, 5, 29, 10, 1, 50, 724, DateTimeKind.Local).AddTicks(4367), "Seed", "admin@note.com", null, null, "$2b$10$GO32ouUJ9SBzHJVRqferEOCOLEH7jem9HFFyRoIoyVjOgkh3zxf9.", "APP_ADMIN,APP_USER", "FTlKH3G+/LJZBC3NVY9kUQ==", null, null, "admin" });
+                values: new object[] { new Guid("7e8b0c60-9419-452e-9fac-0ec52e6f90fe"), new DateTime(2019, 6, 6, 17, 24, 46, 379, DateTimeKind.Local).AddTicks(975), "Seed", "admin@note.com", null, null, "$2b$10$eTogdRTbhMqLHGO5m4vFxuNybkE8cNURSgvd/Ni1GvhSEMVXH5fJK", "APP_ADMIN,APP_USER", "Dat1vPnOX9AZG+9bu57SSg==", null, null, "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppUsers_UserName",

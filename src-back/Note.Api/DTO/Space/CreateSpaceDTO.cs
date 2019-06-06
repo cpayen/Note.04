@@ -14,9 +14,6 @@ namespace Note.Api.DTO.Space
         [MaxLength(2000)]
         public string Description { get; set; }
 
-        [Required, RegularExpression("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", ErrorMessage = "Invalid color format")]
-        public string Color { get; set; }
-
         [Required]
         public Guid OwnerId { get; set; }
     }

@@ -66,13 +66,13 @@ namespace Note.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("62be66a3-10c5-4f2f-a9a8-250f1eda60d4"),
-                            CreatedAt = new DateTime(2019, 5, 29, 10, 1, 50, 724, DateTimeKind.Local).AddTicks(4367),
+                            Id = new Guid("7e8b0c60-9419-452e-9fac-0ec52e6f90fe"),
+                            CreatedAt = new DateTime(2019, 6, 6, 17, 24, 46, 379, DateTimeKind.Local).AddTicks(975),
                             CreatedBy = "Seed",
                             Email = "admin@note.com",
-                            Password = "$2b$10$GO32ouUJ9SBzHJVRqferEOCOLEH7jem9HFFyRoIoyVjOgkh3zxf9.",
+                            Password = "$2b$10$eTogdRTbhMqLHGO5m4vFxuNybkE8cNURSgvd/Ni1GvhSEMVXH5fJK",
                             Roles = "APP_ADMIN,APP_USER",
-                            Salt = "FTlKH3G+/LJZBC3NVY9kUQ==",
+                            Salt = "Dat1vPnOX9AZG+9bu57SSg==",
                             UserName = "admin"
                         });
                 });
@@ -126,9 +126,6 @@ namespace Note.Infra.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Color")
-                        .HasMaxLength(8);
 
                     b.Property<DateTime>("CreatedAt");
 

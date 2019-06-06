@@ -48,7 +48,7 @@ namespace Note.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<SpaceLightDTO>> PostAsync([FromBody] CreateSpaceDTO dto)
         {
-            var item = await _spaces.CreateAsync(dto.OwnerId, dto.Name, dto.Slug, dto.Description, dto.Color);
+            var item = await _spaces.CreateAsync(dto.OwnerId, dto.Name, dto.Slug, dto.Description);
             return Created($"api/spaces/{item.Id}", Mappers.GetSpaceLightDTO(item));
         }
 
@@ -56,7 +56,7 @@ namespace Note.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<SpaceLightDTO>> PutAsync(Guid id, [FromBody] UpdateSpaceDTO dto)
         {
-            var item = await _spaces.UpdateAsync(id, dto.Name, dto.Slug, dto.Description, dto.Color);
+            var item = await _spaces.UpdateAsync(id, dto.Name, dto.Slug, dto.Description);
             return Ok(Mappers.GetSpaceLightDTO(item));
         }
 

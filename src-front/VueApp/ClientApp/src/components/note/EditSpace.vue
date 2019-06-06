@@ -20,9 +20,6 @@
         <b-field label="Description">
           <b-input type="textarea" v-model="space.description" placeholder="Space description" maxlength="2000"></b-input>
         </b-field>
-        <b-field label="Color">
-          <b-input v-model="space.color" placeholder="Space color (hex: #000000)" maxlength="8"></b-input>
-        </b-field>
       </main>
 
     </form>
@@ -39,7 +36,7 @@ export default Vue.extend({
   props: ['initialSpace'],
   data() {
     return {
-      space: Object.assign(new UpdateSpace(), this.initialSpace),
+      space: Object.assign(new UpdateSpace(), this.initialSpace) as Space,
       loading: false,
       error: false,
       success: false,
@@ -50,7 +47,7 @@ export default Vue.extend({
       return this.$store.state.space.error;
     },
     formIsValid(): boolean {
-      return Boolean(this.space.name) && Boolean(this.space.slug) && Boolean(this.space.color);
+      return Boolean(this.space.name) && Boolean(this.space.slug);
     },
   },
   watch: {
@@ -67,6 +64,7 @@ export default Vue.extend({
 
       this.$store.dispatch('space/updateSpace', { id: this.initialSpace.id, updateSpace: this.space })
       .then((response) => {
+        this.$router.replace({ name: 'space', params: { space: response.slug }});
         this.$emit('success');
       })
       .catch((error) => {

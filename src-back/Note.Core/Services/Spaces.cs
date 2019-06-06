@@ -41,7 +41,7 @@ namespace Note.Core.Services
             return spaces;
         }
 
-        public async Task<Space> CreateAsync(Guid ownerId, string name, string slug, string description, string color)
+        public async Task<Space> CreateAsync(Guid ownerId, string name, string slug, string description)
         {
             var owner = 
                 await _factory.GetRepository<AppUser>().FindAsync(ownerId) ?? 
@@ -52,7 +52,6 @@ namespace Note.Core.Services
                 Name = name,
                 Slug = slug,
                 Description = description,
-                Color = color,
                 Owner = owner
             };
 
@@ -62,7 +61,7 @@ namespace Note.Core.Services
             return entity;
         }
 
-        public async Task<Space> UpdateAsync(Guid id, string name, string slug, string description, string color)
+        public async Task<Space> UpdateAsync(Guid id, string name, string slug, string description)
         {
             var entity = 
                 await _factory.GetRepository<Space>().FindAsync(id, "Owner", "Pages") ?? 
@@ -71,7 +70,6 @@ namespace Note.Core.Services
             entity.Name = name;
             entity.Slug = slug;
             entity.Description = description;
-            entity.Color = color;
 
             _factory.GetRepository<Space>().Update(entity);
             await _factory.SaveAsync();

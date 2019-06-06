@@ -29,10 +29,6 @@ namespace Note.Infra.Data.Specs
                 .HasMaxLength(2000);
 
             entityBuilder
-                .Property(o => o.Color)
-                .HasMaxLength(8);
-
-            entityBuilder
                 .HasOne(o => o.Owner)
                 .WithMany(o => o.Spaces)
                 .OnDelete(DeleteBehavior.SetNull);
