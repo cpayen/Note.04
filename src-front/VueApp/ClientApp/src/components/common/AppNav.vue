@@ -5,7 +5,7 @@
     </div>
     <ul>
       <li>
-        <router-link :to="{ name: 'home' }">
+        <router-link :to="{ name: 'default' }">
           <b-icon icon="home-outline"/>
         </router-link>
       </li>

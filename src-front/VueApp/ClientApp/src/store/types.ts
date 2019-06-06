@@ -13,7 +13,9 @@ export interface AuthState {
 
 export interface NoteState {
   spaces?: Space[];
-  error: boolean;
+  currentSpace?: Space;
+  // updateSpaceError?: boolean;
+  // updateSpaceSuccess?: boolean;
 }
 
 export interface ProfileState {

@@ -3,6 +3,7 @@ using Note.Core.Entities;
 using Note.Core.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Note.Core.Services
@@ -20,6 +21,12 @@ namespace Note.Core.Services
         {
             var space = await _factory.GetRepository<Space>().FindAsync(id, "Pages", "Owner");
             return space;
+        }
+
+        public async Task<Space> FindAsync(string slug)
+        {
+            var space = await _factory.GetRepository<Space>().FindByAsync(o => o.Slug == slug, "Pages", "Owner");
+            return space.FirstOrDefault();
         }
 
         public async Task<IEnumerable<Space>> GetAllAsync()
@@ -58,7 +65,7 @@ namespace Note.Core.Services
         public async Task<Space> UpdateAsync(Guid id, string name, string slug, string description, string color)
         {
             var entity = 
-                await _factory.GetRepository<Space>().FindAsync(id) ?? 
+                await _factory.GetRepository<Space>().FindAsync(id, "Owner", "Pages") ?? 
                 throw new NotFoundException($"Space [{id}] entity not found.");
 
             entity.Name = name;

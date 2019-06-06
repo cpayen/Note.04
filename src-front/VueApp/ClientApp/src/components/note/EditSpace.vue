@@ -1,9 +1,9 @@
 <template>
   <div class="login-form">
-    <form v-on:submit.prevent="requestSpaceCreation">
+    <form v-on:submit.prevent="requestSpaceUpdate">
 
       <header class="form-header">
-        <h2 class="subtitle is-3">New space</h2>
+        <h2 class="subtitle is-3">Edit space</h2>
         <div class="has-text-right">
           <button type="submit" class="button is-primary is-medium" :disabled="!formIsValid">Save</button>
         </div>
@@ -31,13 +31,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { CreateSpace } from '@/models/CreateSpace';
+import { Space } from '@/models/Space';
+import { UpdateSpace } from '@/models/UpdateSpace';
 
 export default Vue.extend({
-  name: 'AddSpace',
+  name: 'EditSpace',
+  props: ['initialSpace'],
   data() {
     return {
-      space: new CreateSpace() as CreateSpace,
+      space: Object.assign(new UpdateSpace(), this.initialSpace),
       loading: false,
       error: false,
       success: false,
@@ -58,24 +60,18 @@ export default Vue.extend({
     },
   },
   methods: {
-    requestSpaceCreation() {
+    requestSpaceUpdate() {
       this.loading = true;
       this.success = false;
       this.error = false;
 
-      this.space.ownerId = this.$store.getters['auth/currentUser'].id;
-      // this.$store.dispatch('space/createSpace', this.space);
-
-      this.$store.dispatch('space/createSpace', this.space)
+      this.$store.dispatch('space/updateSpace', { id: this.initialSpace.id, updateSpace: this.space })
       .then((response) => {
         this.$emit('success');
-        this.$router.push({ name: 'space', params: { space: response.slug }});
       })
       .catch((error) => {
         this.$emit('error');
       });
-
-
     },
   },
   // created() {

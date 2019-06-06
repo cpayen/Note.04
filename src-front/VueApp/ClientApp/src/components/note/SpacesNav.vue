@@ -1,13 +1,17 @@
 <template>
   <div class="spaces-nav">
+    <router-link :to="{ name: 'addSpace' }" class="button is-primary">
+      Create a space now
+    </router-link>
     <div class="has-text-centered" v-if="spaces && spaces.length === 0">
       <h2 class="is-2">No content available...</h2>
-      <router-link :to="{ name: 'addSpace' }" class="button is-primary">
-        Create a space now
-      </router-link>
     </div>
     <ul v-if="spaces && spaces.length > 0">
-      <li v-for="space in spaces" :key="space.id">{{space.name}}</li>
+      <li v-for="space in spaces" :key="space.id">
+        <router-link :to="{ name: 'space', params: { space: space.slug }}">
+          <span>{{space.name}}</span>
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -22,17 +26,11 @@ export default Vue.extend({
     return {
       loaded: false,
       error: false,
-      isNewSpaceFormActive: false,
     };
   },
   computed: {
     spaces(): Space[] {
-      return this.$store.state.space.spaces;
-    },
-  },
-  methods: {
-    toggleNewSpaceForm() {
-      this.isNewSpaceFormActive = !this.isNewSpaceFormActive;
+      return this.$store.getters['space/spaces'];
     },
   },
   created() {

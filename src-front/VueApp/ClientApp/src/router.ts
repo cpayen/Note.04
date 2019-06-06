@@ -5,6 +5,8 @@ import Main from './views/Main.vue';
 import Home from '@/views/Home.vue';
 import LastContent from '@/components/note/LastContents.vue';
 import AddSpace from '@/components/note/AddSpace.vue';
+import EditSpace from '@/components/note/EditSpace.vue';
+import Space from '@/components/note/Space.vue';
 import Profile from './views/Profile.vue';
 import store from './store/store';
 
@@ -15,23 +17,26 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/login',
+      path: 'login',
       name: 'login',
       component: Login,
     },
     {
       path: '/',
-      name: 'main',
       component: Main,
       children: [
         {
+          path: 'profile',
+          name: 'profile',
+          component: Profile,
+        },
+        {
           path: '/',
-          name: 'home',
           component: Home,
           children: [
             {
               path: '/',
-              name: 'last',
+              name: 'default',
               component: LastContent,
             },
             {
@@ -42,24 +47,19 @@ const router = new Router({
             {
               path: ':space',
               name: 'space',
-              // component: Space,
+              component: Space,
             },
-            {
-              path: ':space/add',
-              name: 'addPage',
-              // component: Space,
-            },
-            {
-              path: ':space/:page',
-              name: 'page',
-              // component: Home,
-            },
+            // {
+            //   path: ':space/add',
+            //   name: 'addPage',
+            //   // component: Space,
+            // },
+            // {
+            //   path: ':space/:page',
+            //   name: 'page',
+            //   // component: Home,
+            // },
           ],
-        },
-        {
-          path: 'profile',
-          name: 'profile',
-          component: Profile,
         },
       ],
     },
@@ -74,7 +74,7 @@ router.beforeEach((to, from, next) => {
   }
   if (to.name && to.name === 'login') {
     if (store.getters['auth/userIsLoggedIn']) {
-      router.push({ name: 'home' });
+      router.push({ name: 'default' });
     }
   }
   next();

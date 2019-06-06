@@ -45,7 +45,7 @@ export default Vue.extend({
   computed: {
     currentUser(): any {
       if (this.$store.state.auth.currentUser) {
-        this.$router.push({ name: 'app' });
+        this.$router.push({ name: 'default' });
       }
       return this.$store.state.auth.currentUser;
     },

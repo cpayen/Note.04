@@ -36,12 +36,14 @@ namespace Note.Api.Controllers
 
         // GET api/spaces/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SpaceDTO>> FindAsync(Guid id)
+        public async Task<ActionResult<SpaceDTO>> FindAsync(string id)
         {
-            var item = await _spaces.FindAsync(id);
+            Guid guidId;
+            bool isGuid = Guid.TryParse(id, out guidId);
+            var item = isGuid ? await _spaces.FindAsync(guidId) : await _spaces.FindAsync(id);
             return Ok(Mappers.GetSpaceDTO(item));
         }
-
+        
         // POST api/spaces
         [HttpPost]
         public async Task<ActionResult<SpaceLightDTO>> PostAsync([FromBody] CreateSpaceDTO dto)
