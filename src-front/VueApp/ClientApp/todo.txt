@@ -4,9 +4,10 @@
 
 - Main
   - Gauche: Liste des espaces (par date) / Détail espaces (navigation, seulement les titres)
-  - Droite: Liste des pages (par date) / Détail espace (contenu, descriptions...) [+ recherche, tri...]
+  - Droite: Liste des pages (par date) / Détail espace (contenu, descriptions...) [+ recherche, tri...] / détail page
   - Ajout espace / page: renvoi sur le détail de l'élément créé
 
+- login / logout...
 - loaders
 - messages d'erreur
 - gérer les pages
