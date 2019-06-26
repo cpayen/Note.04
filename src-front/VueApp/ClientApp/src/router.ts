@@ -26,40 +26,23 @@ const router = new Router({
       component: Main,
       children: [
         {
+          path: '/',
+          component: Home,
+        },
+        {
+          path: 'notes/:space',
+          name: 'space',
+          component: Space,
+        },
+        {
+          path: 'notes/add/space',
+          name: 'addSpace',
+          component: AddSpace,
+        },
+        {
           path: 'profile',
           name: 'profile',
           component: Profile,
-        },
-        {
-          path: '/',
-          component: Home,
-          children: [
-            {
-              path: '/',
-              name: 'default',
-              component: LastContent,
-            },
-            {
-              path: 'add',
-              name: 'addSpace',
-              component: AddSpace,
-            },
-            {
-              path: ':space',
-              name: 'space',
-              component: Space,
-            },
-            // {
-            //   path: ':space/add',
-            //   name: 'addPage',
-            //   // component: Space,
-            // },
-            // {
-            //   path: ':space/:page',
-            //   name: 'page',
-            //   // component: Home,
-            // },
-          ],
         },
       ],
     },

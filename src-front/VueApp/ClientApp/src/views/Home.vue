@@ -1,13 +1,6 @@
 <template>
   <div class="home">
-    <div class="columns is-gapless">
-      <div class="column is-one-quarter is-left-pane">
-        <spaces-nav/>
-      </div>
-      <div class="column is-right-pane">
-        <router-view/>
-      </div>
-    </div>
+    Home...
   </div>
 </template>
 
@@ -24,7 +17,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss">
-
-</style>

@@ -1,43 +1,37 @@
 <template>
   <div class="main">
-
     <app-nav/>
-    
-    <div class="main-container">
+    <div class="main-container" ref="mainContainer">
       <router-view/>
-      <user-info/>
     </div>
-
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 import AppNav from '@/components/common/AppNav.vue';
-import UserInfo from '@/components/auth/UserInfo.vue';
 
 export default Vue.extend({
   name: 'Main',
   components: {
     AppNav,
-    UserInfo,
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.main-container {
+.main {
   position: absolute;
   top: 0;
-  left: 4rem;
+  left: 0;
   right: 0;
   bottom: 0;
-
-  .user-info {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
+  display: flex;
+  flex-direction: row;
+}
+.main-container {
+  flex-grow: 1;
+  height: 100%;
 }
 </style>
 

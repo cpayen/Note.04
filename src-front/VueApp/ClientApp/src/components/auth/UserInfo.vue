@@ -16,7 +16,9 @@
             </div>
           </div>
           <div class="actions has-text-centered">
-            <a class="button is-light">My profile</a>
+            <router-link :to="{ name: 'profile' }">
+              <b-icon icon="account-outline"/>
+            </router-link>
             <a class="button is-danger" @click="logout()">Logout</a>
           </div>
         </b-dropdown-item>
