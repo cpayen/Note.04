@@ -3,7 +3,6 @@
 Playing with .Net Core and Vue.js
 
 - 1 app front Vue.js
-
 - 1 API .Net Core 3.1
 - Error / Logging middlewares
 - Clean architecture / hexagonal
